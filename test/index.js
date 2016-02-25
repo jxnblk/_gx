@@ -1,5 +1,6 @@
 
 import React from 'react'
+import ReactDOM from 'react-dom'
 import TestUtils from 'react-addons-test-utils'
 import expect from 'expect'
 import Gx, { config } from '../src/Gx'
@@ -51,6 +52,44 @@ describe('Gx', () => {
       renderer.render(<Gx children='Gx' />)
       const tree = renderer.getRenderOutput()
       expect(tree.props.style.width).toEqual(`calc(${128 * 128}px - 12800%)`)
+    })
+  })
+
+  context('at small widths', () => {
+    if (typeof window === 'undefined') {
+      return false
+    }
+
+    it('should render at full-width', () => {
+      const div = document.createElement('div')
+      document.body.appendChild(div)
+      const root = ReactDOM.render(
+        <div style={{ width: 256 }}><Gx /></div>,
+        div
+      )
+      const gx = document.querySelector('.Gx')
+      const width = gx.getBoundingClientRect().width
+      expect(width).toEqual(128)
+      ReactDOM.unmountComponentAtNode(div)
+    })
+  })
+
+  context('at large widths', () => {
+    if (typeof window === 'undefined') {
+      return false
+    }
+
+    it('should render at half-width', () => {
+      const div = document.createElement('div')
+      document.body.appendChild(div)
+      const root = ReactDOM.render(
+        <div style={{ width: 1024 }}><Gx /></div>,
+        div
+      )
+      const gx = document.querySelector('.Gx')
+      const width = gx.getBoundingClientRect().width
+      expect(width).toEqual(512)
+      ReactDOM.unmountComponentAtNode(div)
     })
   })
 })
