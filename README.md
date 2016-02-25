@@ -11,6 +11,7 @@ Minimal responsive React grid system based on the
 - No client-side JS
 - Works with server-side rendering
 - Works in email
+- Single React component
 - <1KB gzipped & minified
 
 ## Getting Started
@@ -41,7 +42,52 @@ class MyComponent extends React.Component {
 export default MyComponent
 ```
 
+## Props
+
+- `col` (number) - Width of column above the breakpoint. Based on a 12 column grid. Default: `6`
+- `breakpoint` (number) - Width in pixels at which columns render side-by-side. Default: `512`
+
+## Configuration
+
+A custom `breakpoint` value can be set with the `config.set()` method.
+
+```jsx
+import React from 'react'
+import Gx, { config } from 'gx'
+
+config.set({ breakpoint: 768 })
+```
+
 ## Examples
+
+### 3 Columns
+
+```jsx
+<div>
+  <Gx col={4}>Col 4</Gx>
+  <Gx col={4}>Col 4</Gx>
+  <Gx col={4}>Col 4</Gx>
+</div>
+```
+
+### 7/5 Split
+
+```jsx
+<div>
+  <Gx col={7}>Col 7</Gx>
+  <Gx col={5}>Col 5</Gx>
+</div>
+```
+
+### Custom Breakpoint
+
+```jsx
+<div>
+  <Gx col={6} breakpoint={768}>Breakpoint 768</Gx>
+  <Gx col={6} breakpoint={768}>Breakpoint 768</Gx>
+</div>
+```
+
 
 ## Demo
 

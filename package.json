@@ -1,10 +1,12 @@
 {
   "name": "gx",
   "version": "1.0.0-rc1",
-  "description": "Minimal responsive React grid system based on the Fab Four Technique",
+  "xdescription": "Minimal responsive React grid system based on the Fab Four Technique",
+  "description": "Minimal responsive React grid system based on the <a href='https://medium.freecodecamp.com/the-fab-four-technique-to-create-responsive-emails-without-media-queries-baf11fdfa848#.hnwla2u14'>Fab Four Technique</a>.",
   "scripts": {
     "prepublish": "mkdir -p dist && babel src --out-dir dist",
     "start": "static-react docs/Root.js -p docs/data.js > index.html",
+    "watch:docs": "onchange docs/**/* -- npm run start",
     "test": "mocha test --compilers js:babel-register"
   },
   "author": "Brent Jackson",
@@ -24,6 +26,7 @@
     "babel-register": "^6.5.2",
     "expect": "^1.14.0",
     "mocha": "^2.4.5",
+    "onchange": "^2.0.0",
     "react": "^0.14.7",
     "react-addons-test-utils": "^0.14.7",
     "react-component-permutations": "^1.0.0-beta1",

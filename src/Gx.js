@@ -29,9 +29,9 @@ const Gx = ({ col, breakpoint, ...props }) => {
 }
 
 Gx.propTypes = {
-  /** Width of column above the breakpoint. Based on a 12 column grid */
+  /** Width of column above the breakpoint. Based on a 12 column grid. All numbers in a row should add up to 12 or less. */
   col: React.PropTypes.oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]),
-  /** Container width at which columns render side-by-side */
+  /** Width in pixels at which columns render side-by-side */
   breakpoint: React.PropTypes.number
 }
 
