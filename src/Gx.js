@@ -22,7 +22,7 @@ const Gx = ({ col, breakpoint, ...props }) => {
     verticalAlign: 'top',
     minWidth: `${(col / 12) * 100}%`,
     maxWidth: '100%',
-    width: `calc((${bp}px - 100%) * ${bp})`
+    width: `calc(${bp * bp}px - ${100 * bp}%)`
   }
 
   return <div {...props} className='Gx' style={style} />

@@ -18,7 +18,7 @@ describe('Gx', () => {
     renderer.render(<Gx children='Gx' />)
     const tree = renderer.getRenderOutput()
     expect(tree.props.style.minWidth).toEqual('50%')
-    expect(tree.props.style.width).toEqual('calc((512px - 100%) * 512)')
+    expect(tree.props.style.width).toEqual(`calc(${512 * 512}px - 51200%)`)
   })
 
   context('when `col` prop is set', () => {
@@ -33,7 +33,7 @@ describe('Gx', () => {
     it('should change width', () => {
       renderer.render(<Gx breakpoint={420} children='Gx' />)
       const tree = renderer.getRenderOutput()
-      expect(tree.props.style.width).toEqual('calc((420px - 100%) * 420)')
+      expect(tree.props.style.width).toEqual(`calc(${420 * 420}px - 42000%)`)
     })
   })
 
@@ -50,7 +50,7 @@ describe('Gx', () => {
     it('should use the new value in the Gx component', () => {
       renderer.render(<Gx children='Gx' />)
       const tree = renderer.getRenderOutput()
-      expect(tree.props.style.width).toEqual('calc((128px - 100%) * 128)')
+      expect(tree.props.style.width).toEqual(`calc(${128 * 128}px - 12800%)`)
     })
   })
 })
