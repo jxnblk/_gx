@@ -6,6 +6,8 @@
 Minimal responsive React grid system based on the
 [Fab Four Technique](https://medium.freecodecamp.com/the-fab-four-technique-to-create-responsive-emails-without-media-queries-baf11fdfa848#.hnwla2u14).
 
+http://jxnblk.com/gx
+
 ## Features
 
 - Element-query-like behavior
