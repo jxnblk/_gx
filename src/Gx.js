@@ -1,21 +1,11 @@
 
 import React from 'react'
 
-class Config {
-  constructor (obj) {
-    Object.assign(this, obj)
-  }
-  set (obj) {
-    Object.assign(this, obj)
-  }
-}
-
-export const config = new Config({ breakpoint: 512 })
-
 /** Grid column component */
 
-const Gx = ({ col, breakpoint, ...props }) => {
-  const bp = breakpoint || config.breakpoint
+const Gx = ({ col, breakpoint, ...props }, { gx }) => {
+  gx = gx || {}
+  const bp = breakpoint || gx.breakpoint || 512
   const style = {
     boxSizing: 'border-box',
     display: 'inline-block',
@@ -37,6 +27,10 @@ Gx.propTypes = {
 
 Gx.defaultProps = {
   col: 6
+}
+
+Gx.contextTypes = {
+  gx: React.PropTypes.object
 }
 
 export default Gx

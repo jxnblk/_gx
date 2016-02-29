@@ -3,7 +3,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import TestUtils from 'react-addons-test-utils'
 import expect from 'expect'
-import Gx, { config } from '../src/Gx'
+import Gx from '../src/Gx'
 
 const renderer = TestUtils.createRenderer()
 
@@ -38,20 +38,11 @@ describe('Gx', () => {
     })
   })
 
-  describe('config', () => {
-    it('should return an object', () => {
-      expect(config).toBeA('object')
-    })
-
-    it('should set a new breakpoint value', () => {
-      config.set({ breakpoint: 128 })
-      expect(config.breakpoint).toEqual(128)
-    })
-
-    it('should use the new value in the Gx component', () => {
-      renderer.render(<Gx children='Gx' />)
+  context('when breakpoint is set with context', () => {
+    it('should set a different breakpoint', () => {
+      renderer.render(<Gx children='Gx' />, { gx: { breakpoint: 320 }})
       const tree = renderer.getRenderOutput()
-      expect(tree.props.style.width).toEqual(`calc(${128 * 128}px - 12800%)`)
+      expect(tree.props.style.width).toEqual(`calc(${320 * 320}px - 32000%)`)
     })
   })
 
@@ -69,7 +60,7 @@ describe('Gx', () => {
       )
       const gx = document.querySelector('.Gx')
       const width = gx.getBoundingClientRect().width
-      expect(width).toEqual(128)
+      expect(width).toEqual(256)
       ReactDOM.unmountComponentAtNode(div)
     })
   })
