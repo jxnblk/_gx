@@ -92,6 +92,19 @@ class MyComponent extends React.Component {
 </div>
 ```
 
+### Wrapping
+
+Because Gx uses `display: inline-block`, grid cells automatically wrap.
+
+```jsx
+<div>
+  <Gx col={6}>Col 6</Gx>
+  <Gx col={6}>Col 6</Gx>
+  <Gx col={6}>Col 6</Gx>
+  <Gx col={6}>Col 6</Gx>
+</div>
+```
+
 ### Custom Breakpoint
 
 ```jsx

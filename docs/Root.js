@@ -1,12 +1,14 @@
 
 import React from 'react'
-import Gx, { config } from '../src/Gx'
+import Gx from '../src/Gx'
 
 const css = `
 code, pre, samp, .mono { font-family: 'Roboto Mono', monospace }
+/*
 .Example .Gx {
   outline: 1px solid #07c;
 }
+*/
 @media screen and (min-width:512px) {
   .sm-right-align { text-align: right }
 }
@@ -85,13 +87,18 @@ const Header = ({ description, ...props }) => (
   </header>
 )
 
-const Box = (props) => (
+const Box = ({ outline, ...props }) => (
   <div {...props}
     className='Box'
     style={{
-      padding: 32
+      padding: 24,
+      outline: outline ? '1px solid rgba(0, 128, 255, .5)' : null
     }} />
 )
+
+Box.defaultProps = {
+  outline: true
+}
 
 const Container = (props) => (
   <div {...props}
@@ -102,6 +109,29 @@ const Container = (props) => (
     }} />
 )
 
+const Features = () => (
+  <section className='py4'>
+    <Gx col={4}>
+      <Box>Element-query-like behavior</Box>
+    </Gx>
+    <Gx col={4}>
+      <Box>No CSS dependencies</Box>
+    </Gx>
+    <Gx col={4}>
+      <Box>No client-side JS</Box>
+    </Gx>
+    <Gx col={4}>
+      <Box>Works with server-side rendering</Box>
+    </Gx>
+    <Gx col={4}>
+      <Box>Single React Component</Box>
+    </Gx>
+    <Gx col={4}>
+      <Box>{'<1KB gzipped & minified'}</Box>
+    </Gx>
+  </section>
+)
+
 const Examples = () => (
   <section id='examples' className='Examples'>
     <h2>
@@ -110,59 +140,67 @@ const Examples = () => (
       </a>
     </h2>
     <div className='Example py2'>
-      <Gx>Default Gx</Gx>
-      <Gx>Default Gx</Gx>
+      <Gx><Box>Default Gx</Box></Gx>
+      <Gx><Box>Default Gx</Box></Gx>
     </div>
     <div className='Example py2'>
-      <Gx col={4}>Col 4 Gx</Gx>
-      <Gx col={4}>Col 4 Gx</Gx>
-      <Gx col={4}>Col 4 Gx</Gx>
+      <Gx col={4}><Box>Col 4 Gx</Box></Gx>
+      <Gx col={4}><Box>Col 4 Gx</Box></Gx>
+      <Gx col={4}><Box>Col 4 Gx</Box></Gx>
     </div>
     <div className='Example py2'>
-      <Gx col={3}>Col 3 Gx</Gx>
-      <Gx col={3}>Col 3 Gx</Gx>
-      <Gx col={3}>Col 3 Gx</Gx>
-      <Gx col={3}>Col 3 Gx</Gx>
+      <Gx col={3}><Box>Col 3 Gx</Box></Gx>
+      <Gx col={3}><Box>Col 3 Gx</Box></Gx>
+      <Gx col={3}><Box>Col 3 Gx</Box></Gx>
+      <Gx col={3}><Box>Col 3 Gx</Box></Gx>
     </div>
     <div className='Example py2'>
-      <Gx col={2}>Col 2 Gx</Gx>
-      <Gx col={2}>Col 2 Gx</Gx>
-      <Gx col={2}>Col 2 Gx</Gx>
-      <Gx col={2}>Col 2 Gx</Gx>
-      <Gx col={2}>Col 2 Gx</Gx>
-      <Gx col={2}>Col 2 Gx</Gx>
+      <Gx col={2}><Box>Col 2 Gx</Box></Gx>
+      <Gx col={2}><Box>Col 2 Gx</Box></Gx>
+      <Gx col={2}><Box>Col 2 Gx</Box></Gx>
+      <Gx col={2}><Box>Col 2 Gx</Box></Gx>
+      <Gx col={2}><Box>Col 2 Gx</Box></Gx>
+      <Gx col={2}><Box>Col 2 Gx</Box></Gx>
     </div>
     <div className='Example py2'>
-      <Gx breakpoint={768}>Breakpoint 768 Gx</Gx>
-      <Gx breakpoint={768}>Breakpoint 768 Gx</Gx>
+      <Gx breakpoint={768}><Box>Breakpoint 768 Gx</Box></Gx>
+      <Gx breakpoint={768}><Box>Breakpoint 768 Gx</Box></Gx>
     </div>
     <div className='Example py2'>
-      <Gx breakpoint={768}>Breakpoint 768 Gx</Gx>
-      <Gx breakpoint={512}>Breakpoint 512 Gx</Gx>
+      <Gx breakpoint={768}><Box>Breakpoint 768 Gx</Box></Gx>
+      <Gx breakpoint={512}><Box>Breakpoint 512 Gx</Box></Gx>
     </div>
     <div className='Example py2'>
       <Gx col={4}>
-        <h3>Col 4</h3>
+        <Box>
+          <h3>Col 4</h3>
+        </Box>
       </Gx>
       <Gx col={8}>
-        <h3>Col 8</h3>
-        <Gx>Nested Gx</Gx>
-        <Gx>Nested Gx</Gx>
+        <Box>
+          <h3>Col 8</h3>
+          <Gx><Box>Nested Gx</Box></Gx>
+          <Gx><Box>Nested Gx</Box></Gx>
+        </Box>
       </Gx>
     </div>
     <div className=''>
       <Gx col={5} breakpoint={1120}>
-        <div className='Example py2' style={{ maxWidth: 480 }}>
-          <h3>480px Container</h3>
-          <Gx col={6}>Col 6</Gx>
-          <Gx col={6}>Col 6</Gx>
+        <div className='Example' style={{ maxWidth: 480 }}>
+          <Box>
+            <h3>480px Container</h3>
+            <Gx col={6}><Box>Col 6</Box></Gx>
+            <Gx col={6}><Box>Col 6</Box></Gx>
+          </Box>
         </div>
       </Gx>
       <Gx col={7} breakpoint={1120}>
-        <div className='Example py2' style={{ maxWidth: 640 }}>
-          <h3>640px Container</h3>
-          <Gx col={6}>Col 6</Gx>
-          <Gx col={6}>Col 6</Gx>
+        <div className='Example' style={{ maxWidth: 640 }}>
+          <Box>
+            <h3>640px Container</h3>
+            <Gx col={6}><Box>Col 6</Box></Gx>
+            <Gx col={6}><Box>Col 6</Box></Gx>
+          </Box>
         </div>
       </Gx>
     </div>
@@ -184,10 +222,8 @@ const Footer = () => (
 
 /*
  *
- *   Build badge
  *   GitHub link
  *   npm link
- *   tweet button
  *   examples
  *     nested
  *     element query explaination
@@ -210,8 +246,9 @@ class Root extends React.Component {
           <style dangerouslySetInnerHTML={{ __html: css }} />
         </head>
         <body>
-            <Box>
+            <Box outline={false}>
               <Header {...this.props} />
+              <Features />
               <Examples />
               <Footer />
             </Box>
