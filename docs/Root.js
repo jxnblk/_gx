@@ -207,6 +207,14 @@ const Examples = () => (
   </section>
 )
 
+const CTA = () => (
+  <section className='py4'>
+    <h2 className='mb0'>Get Started</h2>
+    <p className='mt0'>Learn more and read the documentation on GitHub</p>
+    <a href='https://github.com/jxnblk/gx' className='h1 bold'>GitHub</a>
+  </section>
+)
+
 const Footer = () => (
   <footer className='py4'>
     <Gx>
@@ -232,7 +240,6 @@ const Footer = () => (
  */
 
 class Root extends React.Component {
-
   render () {
     return (
       <html>
@@ -250,6 +257,7 @@ class Root extends React.Component {
               <Header {...this.props} />
               <Features />
               <Examples />
+              <CTA />
               <Footer />
             </Box>
           <script dangerouslySetInnerHTML={{ __html: '!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?"http":"https";if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document, "script", "twitter-wjs");' }} />
