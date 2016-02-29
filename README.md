@@ -105,6 +105,18 @@ Because Gx uses `display: inline-block`, grid cells automatically wrap.
 </div>
 ```
 
+### Nesting
+
+```jsx
+<div>
+  <Gx col={6}>
+    <Gx col={6}>Nested</Gx>
+    <Gx col={6}>Nested</Gx>
+  </Gx>
+  <Gx col={6}>Col 6</Gx>
+</div>
+```
+
 ### Custom Breakpoint
 
 ```jsx
