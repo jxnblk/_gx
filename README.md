@@ -53,13 +53,22 @@ export default MyComponent
 
 ## Configuration
 
-A custom `breakpoint` value can be set with the `config.set()` method.
+A custom `breakpoint` value can be set with [React context](https://facebook.github.io/react/docs/context.html).
 
 ```jsx
-import React from 'react'
-import Gx, { config } from 'gx'
+class MyComponent extends React.Component {
+  static childContextTypes = {
+    gx: React.PropTypes.object
+  }
 
-config.set({ breakpoint: 768 })
+  getChildContext () {
+    return {
+      gx: {
+        breakpoint: 768
+      }
+    }
+  }
+}
 ```
 
 ## Examples
