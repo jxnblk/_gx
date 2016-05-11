@@ -1,6 +1,6 @@
 {
   "name": "gx",
-  "version": "1.0.0-rc2",
+  "version": "1.0.0-rc3",
   "xdescription": "Minimal responsive React grid system based on the Fab Four Technique",
   "description": "Minimal responsive React grid system based on the <a href='https://medium.freecodecamp.com/the-fab-four-technique-to-create-responsive-emails-without-media-queries-baf11fdfa848#.hnwla2u14'>Fab Four Technique</a>.",
   "main": "dist/Gx.js",
