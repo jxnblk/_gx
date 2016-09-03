@@ -247,8 +247,8 @@ class Root extends React.Component {
           <meta charSet='utf-8' />
           <title>Gx</title>
           <meta name='viewport' content='width=device-width,initial-scale=1' />
-          <link href='https://npmcdn.com/basscss-basic/index.css' rel='stylesheet' />
-          <link href='https://npmcdn.com/basscss@8.0.0/css/basscss.min.css' rel='stylesheet' />
+          <link href='https://unpkg.com/basscss-basic/index.css' rel='stylesheet' />
+          <link href='https://unpkg.com/basscss@8.0.0/css/basscss.min.css' rel='stylesheet' />
           <link href='https://fonts.googleapis.com/css?family=Roboto+Mono:400' rel='stylesheet' />
           <style dangerouslySetInnerHTML={{ __html: css }} />
         </head>
