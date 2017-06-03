@@ -35,6 +35,7 @@
     "karma-webpack": "^2.0.3",
     "mocha": "^3.4.2",
     "onchange": "^3.2.1",
+    "prop-types": "^15.5.10",
     "react": "^15.5.4",
     "react-addons-test-utils": "^15.5.1",
     "react-component-permutations": "^1.0.0-beta1",

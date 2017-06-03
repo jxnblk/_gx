@@ -1,5 +1,6 @@
 
 import React from 'react'
+import PropTypes from 'prop-types';
 
 /** Grid column component */
 
@@ -20,9 +21,9 @@ const Gx = ({ col, breakpoint, ...props }, { gx }) => {
 
 Gx.propTypes = {
   /** Width of column above the breakpoint. Based on a 12 column grid. All numbers in a row should add up to 12 or less. */
-  col: React.PropTypes.oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]),
+  col: PropTypes.oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]),
   /** Width in pixels at which columns render side-by-side */
-  breakpoint: React.PropTypes.number
+  breakpoint: PropTypes.number
 }
 
 Gx.defaultProps = {
@@ -30,7 +31,7 @@ Gx.defaultProps = {
 }
 
 Gx.contextTypes = {
-  gx: React.PropTypes.object
+  gx: PropTypes.object
 }
 
 export default Gx
