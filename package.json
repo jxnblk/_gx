@@ -37,10 +37,10 @@
     "onchange": "^3.2.1",
     "prop-types": "^15.5.10",
     "react": "^15.5.4",
-    "react-addons-test-utils": "^15.5.1",
     "react-component-permutations": "^1.0.0-beta1",
     "react-docgen": "^2.7.0",
     "react-dom": "^15.5.4",
+    "react-test-renderer": "^15.5.4",
     "static-react": "^3.1.0",
     "webpack": "^1.12.14"
   },
