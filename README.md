@@ -3,10 +3,9 @@
 
 [![Build Status](https://travis-ci.org/jxnblk/gx.svg)](https://travis-ci.org/jxnblk/gx)
 
-Minimal responsive React grid system based on the
-[Fab Four Technique](https://medium.freecodecamp.com/the-fab-four-technique-to-create-responsive-emails-without-media-queries-baf11fdfa848#.hnwla2u14).
+Minimal responsive React grid system based on the [Fab Four Technique][0].
 
-http://jxnblk.com/gx
+<http://jxnblk.com/gx>
 
 ## Features
 
@@ -18,77 +17,69 @@ http://jxnblk.com/gx
 - Single React component
 - <1KB gzipped & minified
 
+
 ## Getting Started
 
 ```sh
 npm i gx
 ```
 
-```js
-import React from 'react'
-import Gx from 'gx'
+```jsx
+<Gx w={1/2} x={256} />
+```
 
-class MyComponent extends React.Component {
-  render () {
-    return (
-      <div>
-        <Gx col={7}>
-          <h1>Left Column</h1>
-        </Gx>
-        <Gx col={5}>
-          <h2>Right Column</h2>
-        </Gx>
-      </div>
-    )
-  }
-}
+```.jsx
+<Gx w={1/2} breakpoint={256}>
+  Hello
+</Gx>
+```
 
-export default MyComponent
+```..jsx
+// import React from 'react'
+// import Gx from 'gx'
+
+const App = () => (
+  <div>
+    <Gx w={7/12}>
+      <h1>Left Column</h1>
+    </Gx>
+    <Gx w={5/12}>
+      <h2>Right Column</h2>
+    </Gx>
+  </div>
+)
+
+render(<App />)
 ```
 
 ## Props
 
-- `col` (number) - Width of column above the breakpoint. Based on a 12 column grid. Default: `6`
-- `breakpoint` (number) - Width in pixels at which columns render side-by-side. Default: `512`
+- `w` (number) - Width of element above the breakpoint. Numbers between 0–1 are treated as percentage widths. Numbers above 1 are treated as pixel widths.
+- `breakpoint` (number) - Width in pixels at which elements render side-by-side. Default: `512`
 
 ## Configuration
 
-A custom `breakpoint` value can be set with [React context](https://facebook.github.io/react/docs/context.html).
+A custom `breakpoint` value can be set with [theming][1].
 
-```jsx
-class MyComponent extends React.Component {
-  static childContextTypes = {
-    gx: React.PropTypes.object
-  }
-
-  getChildContext () {
-    return {
-      gx: {
-        breakpoint: 768
-      }
-    }
-  }
-}
-```
 
 ## Examples
 
 ### 3 Columns
 
-```jsx
+```.jsx
 <div>
-  <Gx col={4}>Col 4</Gx>
-  <Gx col={4}>Col 4</Gx>
-  <Gx col={4}>Col 4</Gx>
+  <Gx w={1/3}>1/3</Gx>
+  <Gx w={1/3}>1/3</Gx>
+  <Gx w={1/3}>1/3</Gx>
 </div>
 ```
 
 ### 7/5 Split
 
-```jsx
+```.jsx
 <div>
-  <Gx col={7}>Col 7</Gx>
-  <Gx col={5}>Col 5</Gx>
+  <Gx w={7/12}>7/12</Gx>
+  <Gx w={5/12}>5/12</Gx>
 </div>
 ```
 
@@ -96,40 +87,43 @@ class MyComponent extends React.Component {
 
 Because Gx uses `display: inline-block`, grid cells automatically wrap.
 
-```jsx
+```.jsx
 <div>
-  <Gx col={6}>Col 6</Gx>
-  <Gx col={6}>Col 6</Gx>
-  <Gx col={6}>Col 6</Gx>
-  <Gx col={6}>Col 6</Gx>
+  <Gx w={1/2}>1/2</Gx>
+  <Gx w={1/2}>1/2</Gx>
+  <Gx w={1/2}>1/2</Gx>
+  <Gx w={1/2}>1/2</Gx>
 </div>
 ```
 
 ### Nesting
 
-```jsx
+```.jsx
 <div>
-  <Gx col={6}>
-    <Gx col={6}>Nested</Gx>
-    <Gx col={6}>Nested</Gx>
+  <Gx w={1/2}>
+    <Gx w={1/2}>Nested</Gx>
+    <Gx w={1/2}>Nested</Gx>
   </Gx>
-  <Gx col={6}>Col 6</Gx>
+  <Gx w={1/2}>1/2</Gx>
 </div>
 ```
 
 ### Custom Breakpoint
 
-```jsx
+```.jsx
 <div>
-  <Gx col={6} breakpoint={768}>Breakpoint 768</Gx>
-  <Gx col={6} breakpoint={768}>Breakpoint 768</Gx>
+  <Gx w={1/2} breakpoint={768}>Breakpoint 768</Gx>
+  <Gx 2={1/2} breakpoint={768}>Breakpoint 768</Gx>
 </div>
 ```
 
 
-## Demo
+---
 
-http://jxnblk.com/gx
+[GitHub](https://github.com/jxnblk/gx)
+[Made by Jxnblk](http://jxnblk.com)
 
 [MIT License](.github/LICENSE.md)
 
+[0]: https://medium.freecodecamp.com/the-fab-four-technique-to-create-responsive-emails-without-media-queries-baf11fdfa848#.hnwla2u14
+[1]: https://github.com/iamstarkov/theming
