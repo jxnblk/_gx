@@ -7,8 +7,6 @@
 Minimal responsive React grid system based on the
 [Fab Four Technique](https://medium.freecodecamp.com/the-fab-four-technique-to-create-responsive-emails-without-media-queries-baf11fdfa848#.hnwla2u14).
 
-http://jxnblk.com/gx
-
 ## Features
 
 - Element-query-like behavior
@@ -126,11 +124,6 @@ Because Gx uses `display: inline-block`, grid cells automatically wrap.
   <Gx col={6} breakpoint={768}>Breakpoint 768</Gx>
 </div>
 ```
-
-
-## Demo
-
-http://jxnblk.com/gx
 
 [MIT License](.github/LICENSE.md)
 
