@@ -1,11 +1,11 @@
 
 import React from 'react'
 import ReactDOM from 'react-dom'
-import TestUtils from 'react-addons-test-utils'
+import ReactShallowRenderer from 'react-test-renderer/shallow'
 import expect from 'expect'
 import Gx from '../src/Gx'
 
-const renderer = TestUtils.createRenderer()
+const renderer = new ReactShallowRenderer();
 
 describe('Gx', () => {
 

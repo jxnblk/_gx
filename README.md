@@ -57,7 +57,7 @@ A custom `breakpoint` value can be set with [React context](https://facebook.git
 ```jsx
 class MyComponent extends React.Component {
   static childContextTypes = {
-    gx: React.PropTypes.object
+    gx: PropTypes.object
   }
 
   getChildContext () {
